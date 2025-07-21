@@ -1,7 +1,6 @@
 package rebirth;
 
 import dev.drawethree.xprison.api.XPrisonAPI;
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashSet;

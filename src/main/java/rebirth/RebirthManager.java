@@ -1,6 +1,7 @@
 package rebirth;
 
 import dev.drawethree.xprison.api.XPrisonAPI;
+import dev.drawethree.xprison.api.prestiges.model.Prestige;
 import dev.drawethree.xprison.api.ranks.model.Rank;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -30,9 +31,9 @@ public class RebirthManager {
     }
 
     public boolean canRebirth(Player player) {
-        String rank = prisonAPI.getRanksApi().getPlayerRank(player).getPrefix();
-        String prestige = prisonAPI.getPrestigesApi().getPlayerPrestige(player).getPrefix();
+        int rank = prisonAPI.getRanksApi().getPlayerRank(player).getId();
+        boolean maxPrestige = prisonAPI.getPrestigesApi().isMaxPrestige(player);
 
-        return rank.equalsIgnoreCase("Z") && prestige.equalsIgnoreCase("P5");
+        return (rank == 26) && maxPrestige;
     }
 }
