@@ -12,9 +12,14 @@ public class Rebirth extends JavaPlugin {
 
     private XPrisonAPI prisonAPI;
     private final Set<UUID> rebirthViewers = new HashSet<>();
+    private RebirthManager rebirthManager;
 
     public Set<UUID> getRebirthViewers() {
         return rebirthViewers;
+    }
+
+    public RebirthManager getRebirthManager() {
+        return rebirthManager;
     }
 
     @Override
@@ -24,8 +29,8 @@ public class Rebirth extends JavaPlugin {
             getLogger().info("[Rebirth] Hooked into X-Prison API");
         }
 
-        RebirthManager rebirthManager = new RebirthManager(prisonAPI);
-        getCommand("rebirth").setExecutor(new RebirthCommand(rebirthManager, this));
+        this.rebirthManager = new RebirthManager(prisonAPI);
+        this.getCommand("rebirth").setExecutor(new RebirthCommand(rebirthManager, this));
     }
 
     @Override
