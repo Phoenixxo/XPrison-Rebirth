@@ -20,7 +20,7 @@ public class RebirthCommand implements CommandExecutor {
             sender.sendMessage(ChatColor.RED + "You must be Rank Z and Prestige 5 to rebirth.");
             return true;
         }
-        rebirthMenu.open(player);
+        rebirthMenu.open(player, re);
         return true;
     }
 }

@@ -18,7 +18,7 @@ import javax.swing.plaf.SplitPaneUI;
 public class rebirthMenu implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-            return false;
+        return false;
     }
 
     public static void open(Player player, Rebirth plugin) {
