@@ -25,7 +25,7 @@ public class Rebirth extends JavaPlugin {
         }
 
         RebirthManager rebirthManager = new RebirthManager(prisonAPI);
-        getCommand("rebirth").setExecutor(new RebirthCommand(rebirthManager));
+        getCommand("rebirth").setExecutor(new RebirthCommand(rebirthManager, this));
     }
 
     @Override

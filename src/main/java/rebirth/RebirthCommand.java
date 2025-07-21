@@ -9,9 +9,11 @@ import org.bukkit.entity.Player;
 public class RebirthCommand implements CommandExecutor {
 
     private final RebirthManager rebirthManager;
+    private final Rebirth plugin;
 
-    public RebirthCommand(RebirthManager rebirthManager) {
+    public RebirthCommand(RebirthManager rebirthManager, Rebirth plugin) {
         this.rebirthManager = rebirthManager;
+        this.plugin = plugin;
     }
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] strings) {
@@ -20,7 +22,7 @@ public class RebirthCommand implements CommandExecutor {
             sender.sendMessage(ChatColor.RED + "You must be Rank Z and Prestige 5 to rebirth.");
             return true;
         }
-        rebirthMenu.open(player, re);
+        rebirthMenu.open(player, plugin);
         return true;
     }
 }
