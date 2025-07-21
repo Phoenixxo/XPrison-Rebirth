@@ -1,0 +1,12 @@
+name: rebirth
+version: '1.0-SNAPSHOT'
+main: rebirth.Rebirth
+api-version: '1.21'
+load: STARTUP
+authors: [ Phoenixxo ]
+description: A rebirth plugin.
+depend: [X-Prison]
+commands:
+  rebirth:
+    description: Opens the Rebirth menu
+    usage: /rebirth
