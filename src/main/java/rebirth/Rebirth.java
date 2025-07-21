@@ -24,11 +24,15 @@ public class Rebirth extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        if (Bukkit.getPluginManager().isPluginEnabled("X-Prison")) {
-            this.prisonAPI = XPrisonAPI.getInstance();
-            getLogger().info("[Rebirth] Hooked into X-Prison API");
-        }
-
+            // Check if X-Prison plugin is enabled
+            if (getServer().getPluginManager().isPluginEnabled("X-Prison")) {
+                prisonAPI = XPrisonAPI.getInstance();
+                getLogger().info("Successfully hooked into X-Prison API");
+            } else {
+                getLogger().severe("X-Prison plugin not found, disabling!");
+                getServer().getPluginManager().disablePlugin(this);
+                return;
+            }
         this.rebirthManager = new RebirthManager(prisonAPI);
         this.getCommand("rebirth").setExecutor(new RebirthCommand(rebirthManager, this));
     }
@@ -36,6 +40,7 @@ public class Rebirth extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+        getLogger().info("[Rebirth] Shutting down...");
     }
 
 }
