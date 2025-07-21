@@ -39,7 +39,7 @@ public class rebirthMenu {
         for (int row = 1; row <= 3; row++) {
             for (int col = 5; col <= 7; col++) {
                 int slot = row * 9 + col;
-                gui.setItem(slot, accept);
+                gui.setItem(slot, deny);
             }
         }
 
