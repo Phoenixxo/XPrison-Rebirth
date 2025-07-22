@@ -24,7 +24,7 @@ public class RebirthManager {
         prisonAPI.getPrestigesApi().setPlayerPrestige(player, 0);
 
         // Optional: clear inventory, give rewards, or custom logic here
-        player.getInventory().clear();
+//        player.getInventory().clear();
 
         // Message the player
         player.sendMessage(ChatColor.GOLD + "You have been reborn!");

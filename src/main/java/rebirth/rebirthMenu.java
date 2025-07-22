@@ -10,7 +10,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class rebirthMenu {
     public static void open(Player player, Rebirth plugin) {
-        Inventory gui = Bukkit.createInventory(null, 45, ChatColor.GREEN + "!! CONFIRM REBIRTH !!");
+        Inventory gui = Bukkit.createInventory(null, 45, ChatColor.GREEN + "Confirm Rebirth");
 
         // Accept
         ItemStack accept = new ItemStack(Material.EMERALD_BLOCK);
@@ -24,7 +24,7 @@ public class rebirthMenu {
         ItemStack deny = new ItemStack(Material.REDSTONE_BLOCK);
         ItemMeta denyMeta = deny.getItemMeta();
         if (denyMeta != null) {
-            denyMeta.setDisplayName(ChatColor.RED + "Deny");
+            denyMeta.setDisplayName(ChatColor.RED + "Cancel");
         }
         deny.setItemMeta(denyMeta);
 

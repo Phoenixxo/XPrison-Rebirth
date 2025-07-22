@@ -12,13 +12,10 @@ public class Rebirth extends JavaPlugin {
     private XPrisonAPI prisonAPI;
     private final Set<UUID> rebirthViewers = new HashSet<>();
     private RebirthManager rebirthManager;
+    private rebirthListener listener;
 
     public Set<UUID> getRebirthViewers() {
-        return rebirthViewers;
-    }
-
-    public RebirthManager getRebirthManager() {
-        return rebirthManager;
+        return this.rebirthViewers;
     }
 
     @Override
@@ -33,7 +30,9 @@ public class Rebirth extends JavaPlugin {
                 return;
             }
         this.rebirthManager = new RebirthManager(prisonAPI);
+        this.listener = new rebirthListener(this, rebirthManager);
         this.getCommand("rebirth").setExecutor(new RebirthCommand(rebirthManager, this));
+        this.getServer().getPluginManager().registerEvents(this.listener, this);
     }
 
     @Override

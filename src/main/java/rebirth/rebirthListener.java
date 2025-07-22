@@ -1,6 +1,7 @@
 package rebirth;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,9 +12,11 @@ import org.bukkit.inventory.ItemStack;
 public class rebirthListener implements Listener {
 
     private final Rebirth plugin;
+    private final RebirthManager manager;
 
-    public rebirthListener(Rebirth plugin){
+    public rebirthListener(Rebirth plugin, RebirthManager manager){
         this.plugin = plugin;
+        this.manager = manager;
     }
 
     @EventHandler
@@ -29,15 +32,13 @@ public class rebirthListener implements Listener {
         ItemStack clicked = event.getCurrentItem();
         if (clicked == null || !clicked.hasItemMeta()) return;
 
-        String name = clicked.getItemMeta().getDisplayName();
+        Material obj = clicked.getType();
 
-        if (name.equals(ChatColor.GREEN + "Confirm Rebirth")) {
-            plugin.getRebirthViewers().remove(player.getUniqueId());
+        if (obj.equals(Material.EMERALD_BLOCK)) {
             player.closeInventory();
-            plugin.getRebirthManager().performRebirth(player);
+            manager.performRebirth(player);
             player.sendMessage(ChatColor.GOLD + "You have been reborn!");
-        } else if (name.equals(ChatColor.RED + "Cancel Rebirth")) {
-            plugin.getRebirthViewers().remove(player.getUniqueId());
+        } else if (obj.equals(Material.REDSTONE_BLOCK)) {
             player.closeInventory();
             player.sendMessage(ChatColor.GRAY + "Rebirth cancelled.");
         }
