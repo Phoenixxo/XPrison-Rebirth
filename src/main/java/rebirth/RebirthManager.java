@@ -18,7 +18,7 @@ public class RebirthManager {
     public void performRebirth(Player player) {
         // Reset rank and prestige
 
-        Rank firstRank = prisonAPI.getRanksApi().getRankById(0);
+        Rank firstRank = prisonAPI.getRanksApi().getRankById(1);
 
         prisonAPI.getRanksApi().setPlayerRank(player, firstRank);
         prisonAPI.getPrestigesApi().setPlayerPrestige(player, 0);
